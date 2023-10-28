@@ -3,7 +3,6 @@ package com.example.depo.model;
 public class CreamMaterial{
     private String materialName, specificCode, expirationDate, explanation,numberOfPieces;
 
-    
 
 
     public CreamMaterial(String materialName, String specificCode, String expirationDate, String explanation, String numberOfPieces) {
