@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="back_button_for_new_material">#FFCF96</color>
+    <color name="tea_material_page_button_background">#FFEEB0</color>
+    <color name="tea_material_page_button_background_pressed">#A89D74</color>
+    <color name="paste_material_page_button_background">#FFACAC</color>
+    <color name="paste_material_page_button_background_pressed">#814545</color>
+    <color name="cream_material_page_button_background">#B8FFBA</color>
+    <color name="cream_material_page_button_background_pressed">#567857</color>
+    <color name="syrup_material_page_button_background">#98DFFF</color>
+    <color name="syrup_material_page_button_background_pressed">#4F7080</color>
+    <color name="comment_text_for_inventory_items">#4E4E4E</color>
+    <color name="cream_adapter_bg">#ABDFAB</color>
+    <color name="cream_back_add_button_color">#ABDFAB</color>
+    <color name="add_new_cream_material_bg_color">#D6EDD6</color>
+    <color name="add_new_cream_material_edit_text_focused_bg_color">#FDFFE6</color>
+    <color name="add_new_cream_material_edit_text_bg_color">#FEFFF3</color>
+    <color name="cream_material_dark_green">#70876E</color>
+
+
+</resources>

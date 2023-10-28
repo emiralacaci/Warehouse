@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192125171329",
+    "project_id": "depo-a4d84",
+    "storage_bucket": "depo-a4d84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192125171329:android:13b5ab961f3e869cb8ff80",
+        "android_client_info": {
+          "package_name": "com.example.depo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6BYGb-X6CvsbrrwAG3LmII6SvePaaUPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

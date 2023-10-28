@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Depo</string>
+    <string name="number_of_pieces">Adet: </string>
+    <string name="expiration_date">Son Kullanma Tarihi: </string>
+    <string name="no">HAYIR</string>
+    <string name="yes">EVET</string>
+    <string name="update">GÜNCELLE</string>
+    <string name="cancel">İPTAL</string>
+    <string name="add_new_material_alert_box_title">EMİN MİSİN ?</string>
+    <string name="add_new_material_alert_box_message">Kaydetmek İstediğine Emin Misin ?</string>
+    <string name="cream_material_dark_green">#70876E</string>
+</resources>
