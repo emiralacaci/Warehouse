@@ -13,13 +13,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
 import com.example.depo.CaptureAct;
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentAddNewCreamMaterialBinding;
 import com.example.depo.model.CreamMaterial;
-import com.example.depo.ui.inventory_categories_page.InventoryCategoryPage;
+import com.example.depo.ui.MainActivity;
 import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
 import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsViewModel;
 import com.example.depo.util.FragmentHelper;
@@ -28,15 +27,14 @@ import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.util.Calendar;
-import java.util.List;
 
-public class AddNewCreamMaterial extends Fragment {
+public class AddNewCreamMaterialFragment extends Fragment {
 
     private FragmentAddNewCreamMaterialBinding binding;
     private CreamMaterialsViewModel creamMaterialsViewModel;
     private FragmentHelper helper;
 
-    public AddNewCreamMaterial(CreamMaterialsViewModel creamMaterialsViewModel) {
+    public AddNewCreamMaterialFragment(CreamMaterialsViewModel creamMaterialsViewModel) {
         this.creamMaterialsViewModel = creamMaterialsViewModel;
     }
 
@@ -45,6 +43,8 @@ public class AddNewCreamMaterial extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentAddNewCreamMaterialBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.cream_material_quaternary);
         return view;
     }
 

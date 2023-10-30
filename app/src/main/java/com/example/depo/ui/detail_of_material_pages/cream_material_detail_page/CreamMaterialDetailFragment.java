@@ -43,7 +43,7 @@ public class CreamMaterialDetailFragment extends Fragment{
         View view = binding.getRoot();
 
         //change status bar color using hexadecimal code
-        ((MainActivity) getActivity()).updateStatusBarColor(R.color.cream_material_dark_green);
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.cream_material_secondary);
         //ContextCompat.getColor(requireContext(),R.color.cream_material_dark_green)
         //((MainActivity) getActivity()).updateStatusBarColor(getString(R.string.cream_material_dark_green));
 

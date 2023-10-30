@@ -3,14 +3,14 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <corners android:radius="10dp"/>
-            <solid android:color="@color/paste_material_page_button_background"/>
-            <stroke android:width="2dp" android:color="@color/paste_material_page_button_background_pressed"/>
+            <solid android:color="@color/paste_material_primary"/>
+            <stroke android:width="2dp" android:color="@color/paste_material_secondary"/>
         </shape>
     </item>
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <corners android:radius="10dp"/>
-            <solid android:color="@color/paste_material_page_button_background"/>
+            <solid android:color="@color/paste_material_primary"/>
         </shape>
     </item>
 </selector>

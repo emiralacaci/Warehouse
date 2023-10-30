@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.MainActivity"
+    android:background="@color/inventory_home_primary"
+    >
 
     <androidx.fragment.app.FragmentContainerView
         android:name="com.example.depo.ui.inventory_categories_page.InventoryCategoryPage"
@@ -57,9 +59,10 @@
             style="@style/CustomFloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_back"
+            android:src="@drawable/baseline_qr_code_scanner_24"
             app:layout_anchor="@id/app_bar"
             />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -74,7 +74,7 @@
     <ImageView
         android:visibility="gone"
         android:id="@+id/bottom_end"
-        android:background="@color/white"
+        android:background="@color/inventory_home_primary"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         />

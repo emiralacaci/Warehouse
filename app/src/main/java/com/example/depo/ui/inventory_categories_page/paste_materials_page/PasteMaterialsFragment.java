@@ -1,25 +1,27 @@
 package com.example.depo.ui.inventory_categories_page.paste_materials_page;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.depo.R;
 import com.example.depo.databinding.FragmentPasteMaterialsBinding;
-import com.journeyapps.barcodescanner.ScanContract;
-import com.journeyapps.barcodescanner.ScanOptions;
+import com.example.depo.ui.MainActivity;
+import com.example.depo.ui.add_new_material.AddNewCreamMaterialFragment;
+import com.example.depo.ui.add_new_material.AddNewPasteMaterialFragment;
+import com.example.depo.ui.inventory_categories_page.InventoryCategoryPage;
+import com.example.depo.util.FragmentHelper;
 
 public class PasteMaterialsFragment extends Fragment {
 
     private FragmentPasteMaterialsBinding binding;
+    private FragmentHelper helper;
     private PasteMaterialsViewModel pasteMaterialsViewModel;
     @Nullable
     @Override
@@ -27,6 +29,9 @@ public class PasteMaterialsFragment extends Fragment {
         binding = FragmentPasteMaterialsBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.paste_material_secondary);
+
+        helper = new FragmentHelper(getActivity());
         pasteMaterialsViewModel= new ViewModelProvider(this).get(PasteMaterialsViewModel.class);
 
         return view;
@@ -36,53 +41,31 @@ public class PasteMaterialsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        /*
-        pasteMaterialsViewModel.addData(new PasteMaterial(
-                "kozalak",
-                "1234",
-                "11.10.2023",
-                "gönderilmeye hazır",
-                1500));
-
-        pasteMaterialsViewModel.getData();
-        pasteMaterialsViewModel.getPasteMaterials().observe(getViewLifecycleOwner(), new Observer<List<PasteMaterial>>() {
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(List<PasteMaterial> pasteMaterials) {
-                for(PasteMaterial p : pasteMaterials){
-                    System.out.println(p.getMaterialName());
-                }
+            public void onClick(View view) {
+                goToInventoryCategoryPage();
             }
         });
 
-         */
-
+        binding.addNewPasteMaterial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToAddNewCreamMaterialFragment();
+            }
+        });
 
     }
-/*
-    public void scanCode(){
-        ScanOptions options = new ScanOptions();
-        options.setPrompt("ehehe");
-        options.setBeepEnabled(true);
-        options.setOrientationLocked(true);
-        options.setCaptureActivity(CaptureAct.class);
-        barLauncher.launch(options);
+
+    private void goToInventoryCategoryPage(){
+        InventoryCategoryPage fragment = new InventoryCategoryPage();
+        helper.changeFragment(R.id.body_container,fragment,"InventoryCategoryPage");
     }
 
- */
-
-    ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(),result -> {
-        if (result.getContents() != null){
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder.setTitle("resssult");
-            builder.setMessage(result.getContents());
-            builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            }).show();
-        }
-    });
+    private void goToAddNewCreamMaterialFragment(){
+        AddNewPasteMaterialFragment fragment = new AddNewPasteMaterialFragment(pasteMaterialsViewModel);
+        helper.changeFragment(R.id.body_container,fragment,"AddNewCreamMaterial");
+    }
 
 
 

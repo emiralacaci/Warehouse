@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/custom_dialog_bg_shape"
-    android:backgroundTint="@color/cream_material_dark_green"
+    android:backgroundTint="@color/cream_material_secondary"
     android:padding="16dp">
 
     <ScrollView

@@ -35,6 +35,7 @@ public class InventoryCategoryPage extends Fragment {
         binding = FragmentInventoryCategoryBinding.inflate(inflater,container,false);
          view = binding.getRoot();
 
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.inventory_home_primary);
 
 
         return  view;

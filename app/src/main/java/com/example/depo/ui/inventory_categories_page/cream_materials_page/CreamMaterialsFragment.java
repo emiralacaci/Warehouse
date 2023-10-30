@@ -1,12 +1,10 @@
 package com.example.depo.ui.inventory_categories_page.cream_materials_page;
 
-import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,16 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentCreamMaterialsBinding;
 import com.example.depo.model.CreamMaterial;
-import com.example.depo.ui.add_new_material.AddNewCreamMaterial;
+import com.example.depo.ui.MainActivity;
+import com.example.depo.ui.add_new_material.AddNewCreamMaterialFragment;
 import com.example.depo.ui.inventory_categories_page.InventoryCategoryPage;
 import com.example.depo.util.FragmentHelper;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +42,8 @@ public class CreamMaterialsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCreamMaterialsBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.cream_material_secondary);
 
         helper = new FragmentHelper(getActivity());
         creamMaterialsViewModel = new ViewModelProvider(this).get(CreamMaterialsViewModel.class);
@@ -152,7 +146,7 @@ public class CreamMaterialsFragment extends Fragment {
     }
 
     private void goToAddNewCreamMaterialFragment(){
-        AddNewCreamMaterial fragment = new AddNewCreamMaterial(creamMaterialsViewModel);
+        AddNewCreamMaterialFragment fragment = new AddNewCreamMaterialFragment(creamMaterialsViewModel);
         helper.changeFragment(R.id.body_container,fragment,"AddNewCreamMaterial");
     }
 
