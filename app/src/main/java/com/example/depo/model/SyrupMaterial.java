@@ -1,12 +1,12 @@
 package com.example.depo.model;
 
 public class SyrupMaterial{
-    private String materialName, specificCode, expirationDate, explanation;
-    private int numberOfPieces;
+    private String materialName, specificCode, expirationDate, explanation, numberOfPieces;
 
 
 
-    public SyrupMaterial(String materialName, String specificCode, String expirationDate, String explanation, int numberOfPieces) {
+
+    public SyrupMaterial(String materialName, String specificCode, String expirationDate, String explanation, String numberOfPieces) {
         this.materialName = materialName;
         this.specificCode = specificCode;
         this.expirationDate = expirationDate;
@@ -46,11 +46,11 @@ public class SyrupMaterial{
         this.specificCode = specificCode;
     }
 
-    public int getNumberOfPieces() {
+    public String getNumberOfPieces() {
         return numberOfPieces;
     }
 
-    public void setNumberOfPieces(int numberOfPieces) {
+    public void setNumberOfPieces(String numberOfPieces) {
         this.numberOfPieces = numberOfPieces;
     }
 }

@@ -5,6 +5,9 @@ public class Material {
 
 
 
+    public Material(){
+
+    }
 
     public Material(String materialName, String specificCode, String expirationDate, String explanation, String numberOfPieces) {
         this.materialName = materialName;

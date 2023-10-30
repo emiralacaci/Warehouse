@@ -46,7 +46,7 @@ public class SyrupMaterialsViewModel extends ViewModel {
                                 String specificCode = (String) document.get("specific_code");
                                 String expirationDate = (String) document.get("expiration_date");
                                 String explanation = (String) document.get("explanation");
-                                int numberOfPieces = (int) Integer.parseInt(document.get("number_of_pieces").toString());
+                                String numberOfPieces = (String) document.get("number_of_pieces");
 
                                 SyrupMaterial c = new SyrupMaterial(
                                         materialName,

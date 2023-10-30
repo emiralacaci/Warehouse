@@ -59,7 +59,7 @@ public class CreamMaterialAdapter extends RecyclerView.Adapter<CreamMaterialAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreamMaterialDetailFragment fragment = new CreamMaterialDetailFragment();
+                CreamMaterialDetailFragment fragment = new CreamMaterialDetailFragment(creamMaterialList.get(position));
                 FragmentHelper helper = new FragmentHelper(activity);
                 helper.changeFragment(R.id.body_container,fragment, "CreamMaterialDetailFragment");
             }

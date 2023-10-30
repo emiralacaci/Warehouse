@@ -11,6 +11,7 @@ import com.example.depo.R;
 import com.example.depo.model.CreamMaterial;
 import com.example.depo.model.Material;
 import com.example.depo.model.PasteMaterial;
+import com.example.depo.model.ScanQRMaterial;
 import com.example.depo.ui.detail_of_material_pages.cream_material_detail_page.CreamMaterialDetailFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,12 +27,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainActivityViewModel extends ViewModel {
     private FirebaseFirestore firestore;
     private int count=0;
     private Material material;
-    private MutableLiveData<String> materialStringLiveData = new MutableLiveData<>();
+    private ScanQRMaterial scanQRMaterial;
+    private MutableLiveData<ScanQRMaterial> scanQRMaterialMutableLiveData=new MutableLiveData<>();
+    //private HashMap<String, Object> materialHashMap=new HashMap<>();
+    //private MutableLiveData<HashMap<String, Object>> materialMapLiveData = new MutableLiveData<>();
 
     public MainActivityViewModel() {
         firestore = FirebaseFirestore.getInstance();
@@ -47,10 +52,32 @@ public class MainActivityViewModel extends ViewModel {
                         count++;
                         System.out.println(count);
                         if (!task.getResult().isEmpty()){
-                            materialStringLiveData.setValue(collectionPath);
+                            Log.d("akış","task içi dolu bulundu");
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                material=new Material(
+                                        (String) document.getData().get("material_name"),
+                                        (String) document.getData().get("specific_code"),
+                                        (String) document.getData().get("expiration_date"),
+                                        (String) document.getData().get("explanation"),
+                                        (String) document.getData().get("number_of_pieces"));
+
+                            }
+                            System.out.println(material.getExpirationDate());
+                            scanQRMaterial=new ScanQRMaterial(material,collectionPath);
+                            scanQRMaterialMutableLiveData.setValue(scanQRMaterial);
+                            //materialHashMap.put("collection",collectionPath);
+                            //materialHashMap.put("material",material);
+                            //materialMapLiveData.setValue(materialHashMap);
                         }else {
-                            if(!isMatching(materialStringLiveData.getValue()) && count>=4){
-                                materialStringLiveData.setValue("none");
+                            Log.d("akış","task içi dolu bulunmadı");
+                            if(!isMatching(scanQRMaterial.getMaterialType()) && count>=4){
+                                scanQRMaterial.setMaterial(new Material());
+                                scanQRMaterial.setMaterialType("none");
+                                scanQRMaterialMutableLiveData.setValue(scanQRMaterial);
+                                Log.d("akış","none oldu");
+                                //materialHashMap.put("collection","none");
+                                //materialHashMap.put("material","null");
+                                //materialMapLiveData.setValue(materialHashMap);
                             }
                         }
                     }
@@ -76,12 +103,32 @@ public class MainActivityViewModel extends ViewModel {
     }
 
     public void restartMaterialStringLiveData(){
-        materialStringLiveData.setValue("");
+        if(scanQRMaterial==null){
+            scanQRMaterial=new ScanQRMaterial(null,"");
+        }else {
+            scanQRMaterial.setMaterial(null);
+            scanQRMaterial.setMaterialType("");
+        }
         count=0;
+        //materialHashMap.put("collection","");
+        //materialHashMap.put("material","null");
+        //material=null;
+        //count=0;
     }
 
-    public LiveData<String> getMaterialStringLiveData() {
-        return materialStringLiveData;
+    public LiveData<ScanQRMaterial> scanQRMaterialLiveData(){
+        return scanQRMaterialMutableLiveData;
     }
+
+
+
+    /*
+    public LiveData<HashMap<String, Object>> getMaterialHash() {
+        return materialMapLiveData;
+    }
+
+     */
+
+
 
 }

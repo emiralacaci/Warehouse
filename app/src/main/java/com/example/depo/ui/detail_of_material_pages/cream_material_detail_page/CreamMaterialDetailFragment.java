@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentCreamMaterialDetailBinding;
 import com.example.depo.model.CreamMaterial;
+import com.example.depo.model.Material;
 import com.example.depo.ui.MainActivity;
 import com.example.depo.ui.inventory_categories_page.InventoryCategoryPage;
 import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
@@ -28,11 +29,11 @@ import com.example.depo.util.FragmentHelper;
 public class CreamMaterialDetailFragment extends Fragment{
 
     private FragmentCreamMaterialDetailBinding binding;
-    private CreamMaterial creamMaterial;
+    private Material creamMaterial;
 
 
-    public CreamMaterialDetailFragment() {
-
+    public CreamMaterialDetailFragment(Material material) {
+        creamMaterial=material;
     }
 
     @Nullable
@@ -56,6 +57,14 @@ public class CreamMaterialDetailFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(creamMaterial != null){
+            binding.materialName.setText(creamMaterial.getMaterialName());
+            binding.explanation.setText(creamMaterial.getExplanation());
+            binding.numberOfPieces.setText(creamMaterial.getNumberOfPieces());
+            binding.specificCode.setText(creamMaterial.getSpecificCode());
+            binding.expirationDate.setText(creamMaterial.getExpirationDate());
+        }
 
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
