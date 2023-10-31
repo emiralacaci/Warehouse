@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.depo.R;
 import com.example.depo.databinding.FragmentTeaMaterialDetailBinding;
+import com.example.depo.ui.MainActivity;
 
 public class TeaMaterialDetailFragment extends Fragment {
 
@@ -20,6 +22,7 @@ public class TeaMaterialDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentTeaMaterialDetailBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.tea_material_secondary);
         return view;
     }
 
@@ -27,4 +30,6 @@ public class TeaMaterialDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
+
 }

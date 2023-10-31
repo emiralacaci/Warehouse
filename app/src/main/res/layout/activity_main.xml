@@ -48,7 +48,7 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_gravity="bottom"
-            app:fabCradleMargin="10dp"
+            app:fabCradleMargin="12dp"
             app:fabCradleVerticalOffset="6dp"
             app:fabCradleRoundedCornerRadius="30dp"
             android:layout_height="40dp">

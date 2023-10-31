@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.depo.CaptureAct;
+import com.example.depo.util.CaptureAct;
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentAddNewCreamMaterialBinding;
 import com.example.depo.model.CreamMaterial;
