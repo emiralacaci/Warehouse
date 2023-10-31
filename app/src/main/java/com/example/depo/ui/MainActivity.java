@@ -1,24 +1,12 @@
 package com.example.depo.ui;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
-import static java.security.AccessController.getContext;
-
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.depo.CaptureAct;
+import com.example.depo.util.CaptureAct;
 import com.example.depo.R;
 import com.example.depo.databinding.ActivityMainBinding;
 import com.example.depo.model.Material;
@@ -35,19 +23,9 @@ import com.example.depo.ui.detail_of_material_pages.cream_material_detail_page.C
 import com.example.depo.ui.detail_of_material_pages.paste_material_detail_page.PasteMaterialDetailFragment;
 import com.example.depo.ui.detail_of_material_pages.syrup_material_detail_page.SyrupMaterialDetailFragment;
 import com.example.depo.ui.detail_of_material_pages.tea_material_detail_page.TeaMaterialDetailFragment;
-import com.example.depo.ui.inventory_categories_page.InventoryCategoryPage;
 import com.example.depo.util.FragmentHelper;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
-
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
