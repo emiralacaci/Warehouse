@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.depo.R;
 import com.example.depo.databinding.FragmentPasteMaterialDetailBinding;
+import com.example.depo.ui.MainActivity;
 
 public class PasteMaterialDetailFragment extends Fragment {
 
@@ -20,6 +22,7 @@ public class PasteMaterialDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentPasteMaterialDetailBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+        ((MainActivity) getActivity()).updateStatusBarColor(R.color.paste_material_secondary);
         return view;
     }
 
