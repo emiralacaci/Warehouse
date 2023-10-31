@@ -69,7 +69,7 @@ public class CreamMaterialDetailFragment extends Fragment{
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToCreamMaterials();
+                goToCreamMaterialsFragmentPage();
             }
         });
 
@@ -99,7 +99,7 @@ public class CreamMaterialDetailFragment extends Fragment{
         }
     };
 
-    public void goToCreamMaterials(){
+    public void goToCreamMaterialsFragmentPage(){
         CreamMaterialsFragment fragment = new CreamMaterialsFragment();
         FragmentHelper helper = new FragmentHelper(getActivity());
         helper.changeFragment(R.id.body_container,fragment,"CreamMaterialsFragment");

@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentPasteMaterialDetailBinding;
 import com.example.depo.ui.MainActivity;
+import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
+import com.example.depo.ui.inventory_categories_page.paste_materials_page.PasteMaterialsFragment;
+import com.example.depo.util.FragmentHelper;
 
 public class PasteMaterialDetailFragment extends Fragment {
 
@@ -29,5 +32,18 @@ public class PasteMaterialDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToPasteMaterialsFragmentPage();
+            }
+        });
+    }
+
+    public void goToPasteMaterialsFragmentPage(){
+        PasteMaterialsFragment fragment = new PasteMaterialsFragment();
+        FragmentHelper helper = new FragmentHelper(getActivity());
+        helper.changeFragment(R.id.body_container,fragment,"PasteMaterialsFragment");
     }
 }

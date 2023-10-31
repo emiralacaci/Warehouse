@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentSyrupMaterialDetailBinding;
 import com.example.depo.ui.MainActivity;
+import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
+import com.example.depo.ui.inventory_categories_page.syrup_materials_page.SyrupMaterialsFragment;
+import com.example.depo.util.FragmentHelper;
 
 public class SyrupMaterialDetailFragment extends Fragment {
 
@@ -29,7 +32,19 @@ public class SyrupMaterialDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToSyrupMaterialsFragmentPage();
+            }
+        });
     }
 
+    public void goToSyrupMaterialsFragmentPage(){
+        SyrupMaterialsFragment fragment = new SyrupMaterialsFragment();
+        FragmentHelper helper = new FragmentHelper(getActivity());
+        helper.changeFragment(R.id.body_container,fragment,"SyrupMaterialsFragment");
+    }
 
 }
