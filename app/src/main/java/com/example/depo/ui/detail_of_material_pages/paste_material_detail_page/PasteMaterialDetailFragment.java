@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentPasteMaterialDetailBinding;
+import com.example.depo.model.Material;
 import com.example.depo.ui.MainActivity;
 import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
 import com.example.depo.ui.inventory_categories_page.paste_materials_page.PasteMaterialsFragment;
@@ -18,7 +19,12 @@ import com.example.depo.util.FragmentHelper;
 
 public class PasteMaterialDetailFragment extends Fragment {
 
-    FragmentPasteMaterialDetailBinding binding;
+    private FragmentPasteMaterialDetailBinding binding;
+    private Material pasteMaterial;
+
+    public PasteMaterialDetailFragment(Material pasteMaterial) {
+        this.pasteMaterial = pasteMaterial;
+    }
 
     @Nullable
     @Override
@@ -32,6 +38,14 @@ public class PasteMaterialDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(pasteMaterial != null){
+            binding.materialName.setText(pasteMaterial.getMaterialName());
+            binding.explanation.setText(pasteMaterial.getExplanation());
+            binding.numberOfPieces.setText(pasteMaterial.getNumberOfPieces());
+            binding.specificCode.setText(pasteMaterial.getSpecificCode());
+            binding.expirationDate.setText(pasteMaterial.getExpirationDate());
+        }
 
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override

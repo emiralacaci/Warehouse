@@ -57,7 +57,7 @@ public class TeaMaterialAdapter extends RecyclerView.Adapter<TeaMaterialAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TeaMaterialDetailFragment fragment = new TeaMaterialDetailFragment();
+                TeaMaterialDetailFragment fragment = new TeaMaterialDetailFragment(teaMaterialList.get(position));
                 FragmentHelper helper = new FragmentHelper(activity);
                 helper.changeFragment(R.id.body_container,fragment, "TeaMaterialDetailFragment");
             }

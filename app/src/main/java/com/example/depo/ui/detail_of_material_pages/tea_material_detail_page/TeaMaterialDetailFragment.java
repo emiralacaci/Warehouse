@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentTeaMaterialDetailBinding;
+import com.example.depo.model.Material;
 import com.example.depo.ui.MainActivity;
 import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
 import com.example.depo.ui.inventory_categories_page.tea_materials_page.TeaMaterialFragment;
@@ -18,7 +19,12 @@ import com.example.depo.util.FragmentHelper;
 
 public class TeaMaterialDetailFragment extends Fragment {
 
-    FragmentTeaMaterialDetailBinding binding;
+    private FragmentTeaMaterialDetailBinding binding;
+    private Material teaMaterial;
+
+    public TeaMaterialDetailFragment(Material teaMaterial) {
+        this.teaMaterial = teaMaterial;
+    }
 
     @Nullable
     @Override
@@ -32,6 +38,14 @@ public class TeaMaterialDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(teaMaterial != null){
+            binding.materialName.setText(teaMaterial.getMaterialName());
+            binding.explanation.setText(teaMaterial.getExplanation());
+            binding.numberOfPieces.setText(teaMaterial.getNumberOfPieces());
+            binding.specificCode.setText(teaMaterial.getSpecificCode());
+            binding.expirationDate.setText(teaMaterial.getExpirationDate());
+        }
 
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override

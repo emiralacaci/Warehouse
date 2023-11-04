@@ -87,15 +87,15 @@ public class MainActivity extends AppCompatActivity {
                                 mainActivityViewModel.scanQRMaterialLiveData().removeObserver(this);
                                 break;
                             case "PasteMaterials":
-                                fragment = new PasteMaterialDetailFragment();
+                                fragment = new PasteMaterialDetailFragment(material);
                                 mainActivityViewModel.scanQRMaterialLiveData().removeObserver(this);
                                 break;
                             case "SyrupMaterials":
-                                fragment = new SyrupMaterialDetailFragment();
+                                fragment = new SyrupMaterialDetailFragment(material);
                                 mainActivityViewModel.scanQRMaterialLiveData().removeObserver(this);
                                 break;
                             case "TeaMaterials":
-                                fragment = new TeaMaterialDetailFragment();
+                                fragment = new TeaMaterialDetailFragment(material);
                                 mainActivityViewModel.scanQRMaterialLiveData().removeObserver(this);
                                 break;
                             case "none":

@@ -32,8 +32,8 @@ public class CreamMaterialDetailFragment extends Fragment{
     private Material creamMaterial;
 
 
-    public CreamMaterialDetailFragment(Material material) {
-        creamMaterial=material;
+    public CreamMaterialDetailFragment(Material creamMaterial) {
+        creamMaterial=creamMaterial;
     }
 
     @Nullable

@@ -56,7 +56,7 @@ public class SyrupMaterialAdapter extends RecyclerView.Adapter<SyrupMaterialAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SyrupMaterialDetailFragment fragment = new SyrupMaterialDetailFragment();
+                SyrupMaterialDetailFragment fragment = new SyrupMaterialDetailFragment(syrupMaterialList.get(position));
                 FragmentHelper helper = new FragmentHelper(activity);
                 helper.changeFragment(R.id.body_container,fragment, "SyrupMaterialDetailFragment");
             }

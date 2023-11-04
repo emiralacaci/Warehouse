@@ -56,7 +56,7 @@ public class PasteMaterialAdapter extends RecyclerView.Adapter<PasteMaterialAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PasteMaterialDetailFragment fragment = new PasteMaterialDetailFragment();
+                PasteMaterialDetailFragment fragment = new PasteMaterialDetailFragment(pasteMaterialList.get(position));
                 FragmentHelper helper = new FragmentHelper(activity);
                 helper.changeFragment(R.id.body_container,fragment, "PasteMaterialDetailFragment");
             }

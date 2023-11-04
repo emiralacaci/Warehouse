@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.depo.R;
 import com.example.depo.databinding.FragmentSyrupMaterialDetailBinding;
+import com.example.depo.model.Material;
 import com.example.depo.ui.MainActivity;
 import com.example.depo.ui.inventory_categories_page.cream_materials_page.CreamMaterialsFragment;
 import com.example.depo.ui.inventory_categories_page.syrup_materials_page.SyrupMaterialsFragment;
@@ -18,7 +19,12 @@ import com.example.depo.util.FragmentHelper;
 
 public class SyrupMaterialDetailFragment extends Fragment {
 
-    FragmentSyrupMaterialDetailBinding binding;
+    private FragmentSyrupMaterialDetailBinding binding;
+    private Material syrupMaterial;
+
+    public SyrupMaterialDetailFragment(Material syrupMaterial) {
+        this.syrupMaterial = syrupMaterial;
+    }
 
     @Nullable
     @Override
@@ -32,6 +38,14 @@ public class SyrupMaterialDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(syrupMaterial != null){
+            binding.materialName.setText(syrupMaterial.getMaterialName());
+            binding.explanation.setText(syrupMaterial.getExplanation());
+            binding.numberOfPieces.setText(syrupMaterial.getNumberOfPieces());
+            binding.specificCode.setText(syrupMaterial.getSpecificCode());
+            binding.expirationDate.setText(syrupMaterial.getExpirationDate());
+        }
 
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
