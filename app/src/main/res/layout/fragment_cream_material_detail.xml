@@ -19,7 +19,7 @@
             android:drawableStart="@drawable/baseline_arrow_back"
             android:paddingStart="30dp"
             android:background="@drawable/back_button_bg"
-            android:backgroundTint="@color/cream_back_add_button_color"
+            android:backgroundTint="@color/cream_material_primary"
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
                     android:fontFamily="@font/arimo"
                     android:textStyle="bold"
                     android:background="@drawable/add_new_material_bg"
-                    android:backgroundTint="@color/cream_back_add_button_color"
+                    android:backgroundTint="@color/cream_material_primary"
                     android:layout_margin="5dp"
                     android:text="GÜNCELLE"/>
             </LinearLayout>
@@ -152,7 +152,7 @@
                     android:fontFamily="@font/arimo"
                     android:textStyle="bold"
                     android:background="@drawable/add_new_material_bg"
-                    android:backgroundTint="@color/cream_back_add_button_color"
+                    android:backgroundTint="@color/cream_material_primary"
                     android:layout_margin="5dp"
                     android:text="GÜNCELLE"/>
             </LinearLayout>
@@ -204,7 +204,7 @@
                     android:fontFamily="@font/arimo"
                     android:textStyle="bold"
                     android:background="@drawable/add_new_material_bg"
-                    android:backgroundTint="@color/cream_back_add_button_color"
+                    android:backgroundTint="@color/cream_material_primary"
                     android:layout_margin="5dp"
                     android:text="GÜNCELLE"/>
             </LinearLayout>
@@ -256,7 +256,7 @@
                     android:fontFamily="@font/arimo"
                     android:textStyle="bold"
                     android:background="@drawable/add_new_material_bg"
-                    android:backgroundTint="@color/cream_back_add_button_color"
+                    android:backgroundTint="@color/cream_material_primary"
                     android:layout_margin="5dp"
                     android:text="GÜNCELLE"/>
             </LinearLayout>
@@ -308,7 +308,7 @@
                     android:fontFamily="@font/arimo"
                     android:textStyle="bold"
                     android:background="@drawable/add_new_material_bg"
-                    android:backgroundTint="@color/cream_back_add_button_color"
+                    android:backgroundTint="@color/cream_material_primary"
                     android:layout_margin="5dp"
                     android:text="GÜNCELLE"/>
             </LinearLayout>
