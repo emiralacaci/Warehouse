@@ -152,4 +152,6 @@ public class AddNewCreamMaterialFragment extends Fragment {
         CreamMaterialsFragment fragment = new CreamMaterialsFragment();
         helper.changeFragment(R.id.body_container,fragment,"CreamMaterialsFragment");
     }
+    
+    //
 }
