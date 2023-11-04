@@ -24,12 +24,10 @@ public class CreamMaterialAdapter extends RecyclerView.Adapter<CreamMaterialAdap
     private List<CreamMaterial> creamMaterialList = new ArrayList<>();
     private final String piecesOfNumber = "Adet: ";
     private final String expirationDate = "Son Kullanma Tarihi: ";
-    private CreamMaterialsViewModel creamMaterialsViewModel;
     private FragmentActivity activity;
 
-    public CreamMaterialAdapter(List<CreamMaterial> creamMaterialList, CreamMaterialsViewModel creamMaterialsViewModel, FragmentActivity activity) {
+    public CreamMaterialAdapter(List<CreamMaterial> creamMaterialList, FragmentActivity activity) {
         this.creamMaterialList = creamMaterialList;
-        this.creamMaterialsViewModel = creamMaterialsViewModel;
         this.activity = activity;
     }
 

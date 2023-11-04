@@ -33,7 +33,6 @@ public class CreamMaterialsFragment extends Fragment {
     private FragmentHelper helper;
     private List<CreamMaterial> creamMaterialsList;
     private CreamMaterialAdapter creamMaterialAdapter;
-    private DividerItemDecoration decoration;
 
 
 
@@ -48,14 +47,7 @@ public class CreamMaterialsFragment extends Fragment {
         helper = new FragmentHelper(getActivity());
         creamMaterialsViewModel = new ViewModelProvider(this).get(CreamMaterialsViewModel.class);
         creamMaterialsList = new ArrayList<>();
-        creamMaterialAdapter = new CreamMaterialAdapter(creamMaterialsList,creamMaterialsViewModel,getActivity());
-        binding.creamMaterialRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        binding.creamMaterialRecyclerView.setAdapter(creamMaterialAdapter);
-
-        decoration = new DividerItemDecoration(getContext(), RecyclerView.VERTICAL);
-        Drawable d = ResourcesCompat.getDrawable(getResources(),R.drawable.recycler_view_add_space_after_last_index,null);
-        decoration.setDrawable(d);
-
+        creamMaterialAdapter = new CreamMaterialAdapter(creamMaterialsList,getActivity());
 
 
         return view;
@@ -65,6 +57,8 @@ public class CreamMaterialsFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.creamMaterialRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        binding.creamMaterialRecyclerView.setAdapter(creamMaterialAdapter);
 
         binding.addNewCreamMaterial.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,12 +77,7 @@ public class CreamMaterialsFragment extends Fragment {
         getMaterialsData();
 
 
-        binding.loadingTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("tıklandı");
-            }
-        });
+
 
 
     }
