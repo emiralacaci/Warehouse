@@ -1,6 +1,6 @@
 package com.example.depo.model;
 
-public class PasteMaterial{
+public class PasteMaterial extends Material{
     private String materialName, specificCode, expirationDate, explanation, numberOfPieces;
 
 

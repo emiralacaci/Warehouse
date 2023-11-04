@@ -1,6 +1,6 @@
 package com.example.depo.model;
 
-public class TeaMaterial{
+public class TeaMaterial extends Material{
     private String materialName, specificCode, expirationDate, explanation,numberOfPieces;
 
 
