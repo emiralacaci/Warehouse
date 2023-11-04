@@ -2,29 +2,33 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_grey">#DDDDDD</color>
     <color name="back_button_for_new_material">#FFCF96</color>
 
     <color name="tea_material_primary">#FFEEB0</color>
     <color name="tea_material_secondary">#A89D74</color>
     <color name="tea_material_tertiary">#FFF9E5</color>
+    <color name="tea_adapter_bg">#FFF1C0</color>
 
     <color name="paste_material_primary">#FFACAC</color>
     <color name="paste_material_secondary">#814545</color>
     <color name="paste_material_tertiary">#FFDCDC</color>
+    <color name="paste_adapter_bg">#FFC0C0</color>
 
     <color name="cream_material_primary">#B8FFBA</color>
     <color name="cream_material_secondary">#70876E</color>
     <color name="cream_material_tertiary">#567857</color>
     <color name="cream_material_quaternary">#D6EDD6</color>
+    <color name="cream_adapter_bg">#ABDFAB</color>
 
     <color name="syrup_material_primary">#98DFFF</color>
     <color name="syrup_material_secondary">#4F7080</color>
     <color name="syrup_material_tertiary">#D3F1FF</color>
+    <color name="syrup_adapter_bg">#B7E9FF</color>
 
     <color name="inventory_home_primary">#EDEDED</color>
 
     <color name="comment_text_for_inventory_items">#4E4E4E</color>
-    <color name="cream_adapter_bg">#ABDFAB</color>
     <color name="cream_back_add_button_color">#ABDFAB</color>
     <color name="add_new_cream_material_edit_text_focused_bg_color">#FDFFE6</color>
     <color name="add_new_cream_material_edit_text_bg_color">#FEFFF3</color>
