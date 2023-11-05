@@ -3,6 +3,7 @@ package com.example.depo.util;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,9 @@ public class CreamDialog extends AppCompatDialogFragment {
 
     private DialogCreamLayoutBinding binding;
     private CreamDialogListener listener;
+    int backgroundColor=R.color.black;
+    int cancelButtonColor=R.color.white;
+    int updateButtonColor=R.color.white;
 
     @NonNull
     @Override
@@ -30,6 +34,16 @@ public class CreamDialog extends AppCompatDialogFragment {
         binding = DialogCreamLayoutBinding.inflate(inflater);
 
         builder.setView(binding.getRoot());
+
+
+        binding.layout.setBackgroundTintList(getResources().getColorStateList(backgroundColor));
+
+        // İptal düğmesinin rengini ayarla
+        binding.cancelButton.setBackgroundTintList(getResources().getColorStateList(cancelButtonColor));
+
+        // Güncelleme düğmesinin rengini ayarla
+        binding.updateButton.setBackgroundTintList(getResources().getColorStateList(updateButtonColor));
+
 
         binding.updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,27 +66,24 @@ public class CreamDialog extends AppCompatDialogFragment {
         });
 
 
+
+
         return builder.create();
     }
+
+    public void setColor(int backgroundColor, int cancelButtonColor, int updateButtonColor) {
+        this.backgroundColor = backgroundColor;
+        this.cancelButtonColor = cancelButtonColor;
+        this.updateButtonColor = updateButtonColor;
+    }
+
 
     public void setListener(CreamDialogListener listener) {
         this.listener = listener;
     }
 
-    /*
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
 
-        try {
-            listener = (CreamDialogListener) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() +
-                    "must implement ExampleDialogListener");
-        }
-    }
 
-     */
 
     public interface CreamDialogListener {
         void applyTexts(String updatedData);
