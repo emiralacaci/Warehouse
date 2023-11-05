@@ -1,9 +1,6 @@
 package com.example.depo.util;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +14,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.example.depo.R;
 import com.example.depo.databinding.DialogCreamLayoutBinding;
 
-public class CreamDialog extends AppCompatDialogFragment {
+public class MaterialUpdateDialog extends AppCompatDialogFragment {
 
     private DialogCreamLayoutBinding binding;
     private CreamDialogListener listener;
