@@ -14,7 +14,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -34,7 +36,9 @@ public class TeaMaterialsViewModel extends ViewModel {
     public void getData(){
 
 
-        firestore.collection("TeaMaterials") .get()
+        firestore.collection("TeaMaterials")
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -79,6 +83,7 @@ public class TeaMaterialsViewModel extends ViewModel {
         teaMaterialMap.put("expiration_date",teaMaterial.getExpirationDate());
         teaMaterialMap.put("explanation",teaMaterial.getExplanation());
         teaMaterialMap.put("number_of_pieces",teaMaterial.getNumberOfPieces());
+        teaMaterialMap.put("createdAt", FieldValue.serverTimestamp());
 
         firestore.collection("TeaMaterials").document()
                 .set(teaMaterialMap)

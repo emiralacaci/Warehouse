@@ -13,7 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -33,7 +35,9 @@ public class PasteMaterialsViewModel extends ViewModel {
     public void getData(){
 
 
-        firestore.collection("PasteMaterials") .get()
+        firestore.collection("PasteMaterials")
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -78,6 +82,7 @@ public class PasteMaterialsViewModel extends ViewModel {
         pasteMaterialMap.put("expiration_date",pasteMaterial.getExpirationDate());
         pasteMaterialMap.put("explanation",pasteMaterial.getExplanation());
         pasteMaterialMap.put("number_of_pieces",pasteMaterial.getNumberOfPieces());
+        pasteMaterialMap.put("createdAt", FieldValue.serverTimestamp());
 
         firestore.collection("PasteMaterials").document()
                 .set(pasteMaterialMap)

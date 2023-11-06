@@ -13,7 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -24,6 +26,7 @@ import java.util.Map;
 
 public class SyrupMaterialsViewModel extends ViewModel {
     private FirebaseFirestore firestore;
+    List<SyrupMaterial> materialsList;
     private MutableLiveData<List<SyrupMaterial>> syrupMaterialsLiveData = new MutableLiveData<>();
 
     public SyrupMaterialsViewModel() {
@@ -33,12 +36,14 @@ public class SyrupMaterialsViewModel extends ViewModel {
     public void getData(){
 
 
-        firestore.collection("SyrupMaterials") .get()
+        firestore.collection("SyrupMaterials")
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            List<SyrupMaterial> materialsList = new ArrayList<>();
+                            materialsList = new ArrayList<>();
                             Log.d("SyrupMaterials","reading successful");
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
@@ -78,6 +83,7 @@ public class SyrupMaterialsViewModel extends ViewModel {
         syrupMaterialMap.put("expiration_date",syrupMaterial.getExpirationDate());
         syrupMaterialMap.put("explanation",syrupMaterial.getExplanation());
         syrupMaterialMap.put("number_of_pieces",syrupMaterial.getNumberOfPieces());
+        syrupMaterialMap.put("createdAt", FieldValue.serverTimestamp());
 
         firestore.collection("SyrupMaterials").document()
                 .set(syrupMaterialMap)

@@ -124,7 +124,7 @@
                 android:orientation="horizontal"
                 android:weightSum="4"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/cream_material_detail_row_bg"
                 android:elevation="5dp"
                 android:layout_marginTop="2dp"
@@ -147,7 +147,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/update_explanation_button"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/arimo"
                     android:textStyle="bold"
